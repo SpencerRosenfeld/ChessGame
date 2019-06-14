@@ -1,0 +1,55 @@
+# ChessGame
+A simple chess game made with SDL2
+
+=== REQUIREMENTS === 
+
+Microsoft Windows 
+C++ using SDL2
+Want a stand alone exe. Which means that we want all the images to be stored in the exe itself. 
+
+=== BACKEND ===
+
+ChessPiece pieces[32]
+
+team_turn = 0,1,2,3,4,5
+
+movement ( Some functions and structures to evaluate whether a move is valid or not)
+
+evalute_if_checkmate(pieces)
+
+can_1_be_attacked_by_2(piece1,piece2)
+
+game_over = false, true
+winner = "", "white", "black"
+
+ChessPiece
+{
+	location ( Which square of the grid they are located in)
+	type (e.g. knight, pawn, rook, ...)	
+	movement_rule (something which encode the type of movement this piece is allowed to make). If the movement rull is null, then allow any movement. 
+	team ( team white or team black )
+	isCaptured = false, true
+}
+
+=== FRONTEND BACKEND CONNECTION ===
+
+Functions which map frontend coordinates to backend coordinates and vice versa. 
+
+FrontEndGridToBackEndGrid(x,y)
+
+BackEndGridToFrontEndGrid(x,y)
+
+=== FRONTEND === 
+
+Image for each type of chess piece. 
+	Each image should be stored in memory only once
+	This means that any use of the image refers to the one loaded version using pointers. 
+
+Image for each type of checker square
+
+Function to draw the checker squares relative to some specified origin point. 
+
+Function to draw chess piece images on the visual game grid based on the information in the pieces array. 
+	pieces[] => graphics drawn at appropriate locations. 
+	If the chess piece is selected by the mouse then its image should be drawn releative to the mouse location rather than the location stored in the pieces_array. This is going to require a mouse_selected_index variable so that we skip drawing this piece on the grid. 
+
