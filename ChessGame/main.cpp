@@ -54,6 +54,30 @@ int main(int argc, char * args [] )
 
 	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
+	bool quit = false;
+
+	SDL_Event ev;
+
+	while (!quit) {
+		while (SDL_PollEvent(&ev) != 0) {
+			if (ev.type == SDL_QUIT) {
+				quit = true;
+			}
+
+		}
+
+		SDL_SetRenderDrawColor(renderer, 0, 0, 0xFF, 0xFF);
+		SDL_RenderClear(renderer);
+
+		boardTexture.render(0, 0);
+
+		pieceTexture.render(0, 0);
+
+		SDL_RenderPresent(renderer);
+	}
+
+	close();
+
 	return 0;
 }
 
