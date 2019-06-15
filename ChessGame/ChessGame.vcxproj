@@ -91,8 +91,8 @@
       </Command>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>xcopy SDL2.dll ..\Debug
-xcopy SDL2_image.dll ..\Debug</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

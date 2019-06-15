@@ -52,29 +52,33 @@ int main(int argc, char * args [] )
 {
 	init();
 
-	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-
+//	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+	loadMedia();
 	bool quit = false;
 
 	SDL_Event ev;
 
-	while (!quit) {
-		while (SDL_PollEvent(&ev) != 0) {
-			if (ev.type == SDL_QUIT) {
+	while (!quit) 
+	{
+		while (SDL_PollEvent(&ev) != 0) 
+		{
+			if (ev.type == SDL_QUIT) 
+			{
 				quit = true;
 			}
 
 		}
-
-		SDL_SetRenderDrawColor(renderer, 0, 0, 0xFF, 0xFF);
+//		SDL_SetRenderDrawColor(renderer, 0, 0, 0xFF, 0xFF);
 		SDL_RenderClear(renderer);
 
 		boardTexture.render(0, 0);
 
-		pieceTexture.render(0, 0);
+		pieceTexture.render(50, 50);
 
 		SDL_RenderPresent(renderer);
 	}
+
+
 
 	close();
 
@@ -200,7 +204,7 @@ bool init()
 bool loadMedia() {
 	bool success = true;
 
-	if (!pieceTexture.loadFromFile("..\\b_bishop_2x_ns.png")) {
+	if (!pieceTexture.loadFromFile("b_bishop_2x_ns.bmp")) {
 		success = false;
 	}
 	return success;
