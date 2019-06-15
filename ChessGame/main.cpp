@@ -1,6 +1,7 @@
 #include <SDL.h>
+#include <SDL_image.h>
 #include <iostream>
-#include  <thread>
+#include <thread>
 #include <chrono>
 
 const int SCREEN_WIDTH = 800;
