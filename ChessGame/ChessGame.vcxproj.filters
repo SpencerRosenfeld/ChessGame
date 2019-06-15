@@ -22,4 +22,7 @@
   <ItemGroup>
     <Text Include="Plan.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="SDL2.dll" />
+  </ItemGroup>
 </Project>
