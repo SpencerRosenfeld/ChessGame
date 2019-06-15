@@ -143,6 +143,24 @@
   <ItemGroup>
     <None Include="SDL2.dll" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\JohnPablok Cburnett Chess Zip\JohnPablok Cburnett Chess set\PNGs\No shadow\2x\b_bishop_2x_ns.png" />
+    <Image Include="..\JohnPablok Cburnett Chess Zip\JohnPablok Cburnett Chess set\PNGs\No shadow\2x\b_king_2x_ns.png" />
+    <Image Include="..\JohnPablok Cburnett Chess Zip\JohnPablok Cburnett Chess set\PNGs\No shadow\2x\b_knight_2x_ns.png" />
+    <Image Include="..\JohnPablok Cburnett Chess Zip\JohnPablok Cburnett Chess set\PNGs\No shadow\2x\b_pawn_2x_ns.png" />
+    <Image Include="..\JohnPablok Cburnett Chess Zip\JohnPablok Cburnett Chess set\PNGs\No shadow\2x\b_queen_2x_ns.png" />
+    <Image Include="..\JohnPablok Cburnett Chess Zip\JohnPablok Cburnett Chess set\PNGs\No shadow\2x\b_rook_2x_ns.png" />
+    <Image Include="..\JohnPablok Cburnett Chess Zip\JohnPablok Cburnett Chess set\PNGs\No shadow\2x\square brown dark_2x_ns.png" />
+    <Image Include="..\JohnPablok Cburnett Chess Zip\JohnPablok Cburnett Chess set\PNGs\No shadow\2x\square brown light_2x_ns.png" />
+    <Image Include="..\JohnPablok Cburnett Chess Zip\JohnPablok Cburnett Chess set\PNGs\No shadow\2x\square gray dark _2x_ns.png" />
+    <Image Include="..\JohnPablok Cburnett Chess Zip\JohnPablok Cburnett Chess set\PNGs\No shadow\2x\square gray light _2x_ns.png" />
+    <Image Include="..\JohnPablok Cburnett Chess Zip\JohnPablok Cburnett Chess set\PNGs\No shadow\2x\w_bishop_2x_ns.png" />
+    <Image Include="..\JohnPablok Cburnett Chess Zip\JohnPablok Cburnett Chess set\PNGs\No shadow\2x\w_king_2x_ns.png" />
+    <Image Include="..\JohnPablok Cburnett Chess Zip\JohnPablok Cburnett Chess set\PNGs\No shadow\2x\w_knight_2x_ns.png" />
+    <Image Include="..\JohnPablok Cburnett Chess Zip\JohnPablok Cburnett Chess set\PNGs\No shadow\2x\w_pawn_2x_ns.png" />
+    <Image Include="..\JohnPablok Cburnett Chess Zip\JohnPablok Cburnett Chess set\PNGs\No shadow\2x\w_queen_2x_ns.png" />
+    <Image Include="..\JohnPablok Cburnett Chess Zip\JohnPablok Cburnett Chess set\PNGs\No shadow\2x\w_rook_2x_ns.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
