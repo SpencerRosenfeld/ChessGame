@@ -81,3 +81,7 @@ void LTextureClass::setHeight(int h) {
 	height = h;
 }
 
+void LTextureClass::SetRenderer(SDL_Renderer * r)
+{
+	renderer = r;
+}

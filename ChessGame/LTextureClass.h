@@ -22,6 +22,8 @@ public:
 	//Render texture at a given point
 	void render(int x, int y);
 
+	void SetRenderer(SDL_Renderer * r);
+
 	//Get image dimensions
 	int getWidth();
 	int getHeight();
