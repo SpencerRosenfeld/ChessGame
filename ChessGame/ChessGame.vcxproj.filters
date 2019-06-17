@@ -27,6 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="SDL2.dll" />
+    <None Include="SDL2_image.dll" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Images\b_bishop_2x_ns.bmp">
