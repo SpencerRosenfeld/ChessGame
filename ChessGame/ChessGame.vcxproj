@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ChessPiece.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +163,9 @@
     <Image Include="Images\w_pawn_2x_ns.bmp" />
     <Image Include="Images\w_queen_2x_ns.bmp" />
     <Image Include="Images\w_rook_2x_ns.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ChessPiece.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
