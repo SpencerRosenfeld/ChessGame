@@ -9,7 +9,7 @@ public:
 	int x;
 	int y;
 	std::string type;
-	int team;
+	std::string team;
 	bool isCaptured;
 };
 
