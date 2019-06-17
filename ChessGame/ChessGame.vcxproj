@@ -137,6 +137,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ChessPiece.cpp" />
+    <ClCompile Include="LTextureClass.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChessPiece.h" />
+    <ClInclude Include="LTextureClass.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

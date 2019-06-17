@@ -24,6 +24,9 @@
     <ClCompile Include="ChessPiece.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LTextureClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Plan.txt" />
@@ -84,6 +87,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChessPiece.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LTextureClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
