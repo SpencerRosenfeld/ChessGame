@@ -1,22 +1,19 @@
 #include "ChessPiece.h"
 #include <string>
 
-using namespace std;
-
-int x = 0;
-int y = 0;
-std::string type;
-
-//team 1 = white, team 0 = black
-//Under the chess rule, the white team goes first
-int team = 1;
-bool isCaptured = false;
-
 ChessPiece::ChessPiece()
 {
+	//team 1 = white, team 0 = black
+	//Under the chess rule, the white team goes first
+	team = 1;
+
+	x = 0;
+	y = 0;
+	isCaptured = false;
 }
 
 
 ChessPiece::~ChessPiece()
 {
+	free();
 }
