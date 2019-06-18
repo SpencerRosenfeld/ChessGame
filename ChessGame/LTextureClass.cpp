@@ -6,8 +6,6 @@ LTextureClass::LTextureClass()
 	width = 0;
 	height = 0;
 	renderer = NULL;
-	window = NULL;
-	surface = NULL;
 }
 
 

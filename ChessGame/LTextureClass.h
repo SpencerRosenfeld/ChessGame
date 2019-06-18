@@ -33,8 +33,6 @@ public:
 private:
 	SDL_Texture * texture;
 	SDL_Renderer * renderer;
-	SDL_Window * window;
-	SDL_Surface * surface;
 	int width;
 	int height;
 };

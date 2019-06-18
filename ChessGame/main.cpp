@@ -3,6 +3,8 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include "LTextureClass.h"
+#include "ChessPiece.h"
 
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600; 
@@ -13,11 +15,15 @@ SDL_Surface * surface = NULL;
 
 bool init();
 void close();
+bool loadPawnTextureAndPiece();
 
+LTextureClass pawnTexture;
+ChessPiece pawnPiece;
 
 int main(int argc, char * args [] )
 {
 	init();
+	loadPawnTextureAndPiece();
 	bool quit = false;
 
 	SDL_Event ev;
@@ -33,8 +39,9 @@ int main(int argc, char * args [] )
 
 		}
 		SDL_RenderClear(renderer);
+//		pawnPiece.texture->render(50, 50);
 
-
+		pawnTexture.render(5, 5);
 
 		SDL_RenderPresent(renderer);
 	}
@@ -46,6 +53,28 @@ int main(int argc, char * args [] )
 	return 0;
 }
 
+bool loadPawnTextureAndPiece() 
+{
+	bool success = true;
+
+	pawnTexture.SetRenderer(renderer);
+
+	
+	if (pawnTexture.loadFromFile("C:\\Users\\marvi\\source\\repos\\SpencerRosenfeld\\ChessGame\\ChessGame\\Images\\b_bishop_2x_ns.bmp")) 
+	{
+		pawnTexture.setWidth(50);
+		pawnTexture.setHeight(50);
+
+		pawnPiece.texture = & pawnTexture ;
+	}
+	else
+	{
+		success = false;
+	}
+
+
+	return success;
+}
 
 bool init()
 {
