@@ -17,10 +17,24 @@ bool init();
 void close();
 bool loadPawnTextureAndPiece();
 
-LTextureClass pawnTexture;
+LTextureClass blackPawnTexture;
+LTextureClass whitePawnTexture;
+LTextureClass blackKnightTexture;
+LTextureClass whiteKnightTexture;
+LTextureClass blackBishopTexture;
+LTextureClass whiteBishopTexture;
+LTextureClass blackKingTexture;
+LTextureClass whiteKingTexture;
+LTextureClass blackQueenTexture;
+LTextureClass whiteQueenTexture;
+LTextureClass blackRookTexture;
+LTextureClass whiteRookTexture;
+LTextureClass lightBrownTexture;
+LTextureClass darkBrownTexture;
+LTextureClass lightGrayTexture;
+LTextureClass darkGrayTexture;
 
-
-ChessPiece pawnPiece;
+ChessPiece blackPawnPiece;
 
 int main(int argc, char * args [] )
 {
@@ -41,14 +55,12 @@ int main(int argc, char * args [] )
 
 		}
 		SDL_RenderClear(renderer);
-//		pawnPiece.texture->render(50, 50);
 
-		pawnTexture.render(5, 5);
+		blackPawnTexture.render(5, 5);
+		whitePawnTexture.render(10, 10);
 
 		SDL_RenderPresent(renderer);
 	}
-
-
 
 	close();
 
@@ -59,22 +71,88 @@ bool loadPawnTextureAndPiece()
 {
 	bool success = true;
 
-	pawnTexture.SetRenderer(renderer);
+	// Set the renderers for the textures
+	blackPawnTexture.SetRenderer(renderer);
 
+	// Load the images for the textures from the appropraite files
+	success = success && blackPawnTexture.loadFromFile("b_pawn_2x_ns.bmp");
+	success = success && whitePawnTexture.loadFromFile("w_pawn_2x_ns.bmp");
+	success = success && blackBishopTexture.loadFromFile("b_bishop_2x_ns.bmp");
+	success = success && whiteBishopTexture.loadFromFile("w_bishop_2x_ns.bmp");
+	success = success && blackKingTexture.loadFromFile("b_king_2x_ns.bmp");
+	success = success && whiteKingTexture.loadFromFile("w_king_2x_ns.bmp");
+	success = success && blackQueenTexture.loadFromFile("b_queen_2x_ns.bmp");
+	success = success && whiteQueenTexture.loadFromFile("w_queen_2x_ns.bmp");
+	success = success && blackRookTexture.loadFromFile("b_rook_2x_ns.bmp");
+	success = success && whiteRookTexture.loadFromFile("w_rook_2x_ns.bmp");
+	success = success && lightBrownTexture.loadFromFile("square brown light_2x_ns.bmp");
+	success = success && darkBrownTexture.loadFromFile("square brown dark_2x_ns.bmp");
+	success = success && lightGrayTexture.loadFromFile("square gray light_2x_ns.bmp");
+	success = success && darkGrayTexture.loadFromFile("square gray dark_2x_ns.bmp");
+
+	// Set the width and height of each texture
+	blackPawnTexture.setWidth(50);
+	blackPawnTexture.setHeight(50);
+	//blackPawnPiece.texture = &blackPawnTexture;
+	whitePawnTexture.setWidth(50);
+	whitePawnTexture.setHeight(50);
+	//whitePawnPiece
+	blackBishopTexture.setWidth(50);
+	blackBishopTexture.setHeight(50);
+
+	whiteBishopTexture.setWidth(50);
+	whiteBishopTexture.setHeight(50);
+
+	blackKingTexture.setWidth(50);
+	blackKingTexture.setHeight(50);
+
+	whiteKingTexture.setWidth(50);
+	whiteKingTexture.setHeight(50);
+
+	blackQueenTexture.setWidth(50);
+	blackQueenTexture.setHeight(50);
+
+	whiteQueenTexture.setWidth(50);
+	whiteQueenTexture.setHeight(50);
+
+	blackRookTexture.setWidth(50);
+	blackRookTexture.setHeight(50);
+
+	whiteRookTexture.setWidth(50);
+	whiteRookTexture.setHeight(50);
+
+	blackKnightTexture.setWidth(50);
+	blackKnightTexture.setHeight(50);
+
+	whiteKnightTexture.setWidth(50);
+	whiteKnightTexture.setHeight(50);
+
+	lightBrownTexture.setWidth(50);
+	lightBrownTexture.setHeight(50);
+
+	darkBrownTexture.setWidth(50);
+	darkBrownTexture.setHeight(50);
+
+	lightGrayTexture.setWidth(50);
+	lightGrayTexture.setHeight(50);
 	
-	if (pawnTexture.loadFromFile("b_pawn_2x_ns.bmp")) 
-	{
-		pawnTexture.setWidth(50);
-		pawnTexture.setHeight(50);
+	darkGrayTexture.setWidth(50);
+	darkGrayTexture.setHeight(50);
 
-		pawnPiece.texture = & pawnTexture ;
+/*	
+	if (blackPawnTexture.loadFromFile("b_pawn_2x_ns.bmp")) 
+	{
+		blackPawnTexture.setWidth(50);
+		blackPawnTexture.setHeight(50);
+
+		blackPawnPiece.texture = & blackPawnTexture ;
 	}
+	if ()
 	else
 	{
 		success = false;
 	}
-
-
+	*/
 	return success;
 }
 
@@ -90,6 +168,7 @@ bool init()
 	{
 		if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1"))
 		{
+
 		}
 
 		window = SDL_CreateWindow("Chess Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
@@ -101,7 +180,7 @@ bool init()
 		else
 		{
 			renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-			if(renderer == NULL)
+			if (renderer == NULL)
 			{
 				success = false;
 			}
