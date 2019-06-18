@@ -18,6 +18,8 @@ void close();
 bool loadPawnTextureAndPiece();
 
 LTextureClass pawnTexture;
+
+
 ChessPiece pawnPiece;
 
 int main(int argc, char * args [] )
@@ -60,7 +62,7 @@ bool loadPawnTextureAndPiece()
 	pawnTexture.SetRenderer(renderer);
 
 	
-	if (pawnTexture.loadFromFile("C:\\Users\\marvi\\source\\repos\\SpencerRosenfeld\\ChessGame\\ChessGame\\Images\\b_bishop_2x_ns.bmp")) 
+	if (pawnTexture.loadFromFile("b_pawn_2x_ns.bmp")) 
 	{
 		pawnTexture.setWidth(50);
 		pawnTexture.setHeight(50);
