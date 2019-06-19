@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "LTextureClass.h";
 
 class ChessPiece
 {
@@ -11,6 +12,7 @@ public:
 	std::string type;
 	std::string team;
 	bool isCaptured;
+	LTextureClass * texture;
 };
 
 

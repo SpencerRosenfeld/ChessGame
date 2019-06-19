@@ -79,7 +79,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\SDL2_image-devel-2.0.4-VC\SDL2_image-2.0.4\include;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\SDL2_image-2.0.4\include;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\SDL2_image-2.0.4\lib\x86;C:\SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -137,6 +137,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ChessPiece.cpp" />
+    <ClCompile Include="LTextureClass.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -147,25 +148,26 @@
     <None Include="SDL2_image.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Images\b_bishop_2x_ns.bmp" />
-    <Image Include="Images\b_king_2x_ns.bmp" />
-    <Image Include="Images\b_knight_2x_ns.bmp" />
-    <Image Include="Images\b_pawn_2x_ns.bmp" />
-    <Image Include="Images\b_queen_2x_ns.bmp" />
-    <Image Include="Images\b_rook_2x_ns.bmp" />
-    <Image Include="Images\square brown dark_2x_ns.bmp" />
-    <Image Include="Images\square brown light_2x_ns.bmp" />
-    <Image Include="Images\square gray dark _2x_ns.bmp" />
-    <Image Include="Images\square gray light _2x_ns.bmp" />
-    <Image Include="Images\w_bishop_2x_ns.bmp" />
-    <Image Include="Images\w_king_2x_ns.bmp" />
-    <Image Include="Images\w_knight_2x_ns.bmp" />
-    <Image Include="Images\w_pawn_2x_ns.bmp" />
-    <Image Include="Images\w_queen_2x_ns.bmp" />
-    <Image Include="Images\w_rook_2x_ns.bmp" />
+    <ClInclude Include="ChessPiece.h" />
+    <ClInclude Include="LTextureClass.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ChessPiece.h" />
+    <Image Include="..\Debug\b_bishop_2x_ns.bmp" />
+    <Image Include="..\Debug\b_king_2x_ns.bmp" />
+    <Image Include="..\Debug\b_knight_2x_ns.bmp" />
+    <Image Include="..\Debug\b_pawn_2x_ns.bmp" />
+    <Image Include="..\Debug\b_queen_2x_ns.bmp" />
+    <Image Include="..\Debug\b_rook_2x_ns.bmp" />
+    <Image Include="..\Debug\square brown dark_2x_ns.bmp" />
+    <Image Include="..\Debug\square brown light_2x_ns.bmp" />
+    <Image Include="..\Debug\square gray dark _2x_ns.bmp" />
+    <Image Include="..\Debug\square gray light _2x_ns.bmp" />
+    <Image Include="..\Debug\w_bishop_2x_ns.bmp" />
+    <Image Include="..\Debug\w_king_2x_ns.bmp" />
+    <Image Include="..\Debug\w_knight_2x_ns.bmp" />
+    <Image Include="..\Debug\w_pawn_2x_ns.bmp" />
+    <Image Include="..\Debug\w_queen_2x_ns.bmp" />
+    <Image Include="..\Debug\w_rook_2x_ns.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

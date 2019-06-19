@@ -3,57 +3,43 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include "LTextureClass.h"
+#include "ChessPiece.h"
 
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600; 
-
-class LTexture {
-public:
-	//Initialize variables
-	LTexture();
-
-	//Deallocates memory
-	~LTexture();
-
-	//Load image at a specified path
-	bool loadFromFile(std::string path);
-
-	//Deallocates texture
-	void free();
-
-	//Render texture at a given point
-	void render(int x, int y);
-
-	//Get image dimensions
-	int getWidth();
-	int getHeight();
-	void setWidth(int);
-	void setHeight(int);
-
-private:
-	SDL_Texture * texture;
-
-	int width;
-	int height;
-};
 
 SDL_Window * window = NULL;
 SDL_Renderer * renderer = NULL;
 SDL_Surface * surface = NULL; 
 
 bool init();
-bool loadMedia();
 void close();
+bool loadPawnTextureAndPiece();
 
-LTexture pieceTexture;
-LTexture boardTexture;
+LTextureClass blackPawnTexture;
+LTextureClass whitePawnTexture;
+LTextureClass blackKnightTexture;
+LTextureClass whiteKnightTexture;
+LTextureClass blackBishopTexture;
+LTextureClass whiteBishopTexture;
+LTextureClass blackKingTexture;
+LTextureClass whiteKingTexture;
+LTextureClass blackQueenTexture;
+LTextureClass whiteQueenTexture;
+LTextureClass blackRookTexture;
+LTextureClass whiteRookTexture;
+LTextureClass lightBrownTexture;
+LTextureClass darkBrownTexture;
+LTextureClass lightGrayTexture;
+LTextureClass darkGrayTexture;
+
+ChessPiece blackPawnPiece;
 
 int main(int argc, char * args [] )
 {
 	init();
-
-//	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-	loadMedia();
+	loadPawnTextureAndPiece();
 	bool quit = false;
 
 	SDL_Event ev;
@@ -68,96 +54,106 @@ int main(int argc, char * args [] )
 			}
 
 		}
-//		SDL_SetRenderDrawColor(renderer, 0, 0, 0xFF, 0xFF);
 		SDL_RenderClear(renderer);
 
-		boardTexture.render(0, 0);
-
-		pieceTexture.render(50, 50);
+		blackPawnTexture.render(5, 5);
+		whitePawnTexture.render(10, 10);
 
 		SDL_RenderPresent(renderer);
 	}
-
-
 
 	close();
 
 	return 0;
 }
 
-LTexture::LTexture() {
-	//Initialize
-	texture = NULL;
-	width = 0;
-	height = 0;
-}
+bool loadPawnTextureAndPiece() 
+{
+	bool success = true;
 
-LTexture::~LTexture() {
-	//Deallocate
-	free();
-}
+	// Set the renderers for the textures
+	blackPawnTexture.SetRenderer(renderer);
 
-bool LTexture::loadFromFile(std::string path) {
-	//Remove pre-existing texture
-	free();
+	// Load the images for the textures from the appropraite files
+	success = success && blackPawnTexture.loadFromFile("b_pawn_2x_ns.bmp");
+	success = success && whitePawnTexture.loadFromFile("w_pawn_2x_ns.bmp");
+	success = success && blackBishopTexture.loadFromFile("b_bishop_2x_ns.bmp");
+	success = success && whiteBishopTexture.loadFromFile("w_bishop_2x_ns.bmp");
+	success = success && blackKingTexture.loadFromFile("b_king_2x_ns.bmp");
+	success = success && whiteKingTexture.loadFromFile("w_king_2x_ns.bmp");
+	success = success && blackQueenTexture.loadFromFile("b_queen_2x_ns.bmp");
+	success = success && whiteQueenTexture.loadFromFile("w_queen_2x_ns.bmp");
+	success = success && blackRookTexture.loadFromFile("b_rook_2x_ns.bmp");
+	success = success && whiteRookTexture.loadFromFile("w_rook_2x_ns.bmp");
+	success = success && lightBrownTexture.loadFromFile("square brown light_2x_ns.bmp");
+	success = success && darkBrownTexture.loadFromFile("square brown dark_2x_ns.bmp");
+	success = success && lightGrayTexture.loadFromFile("square gray light_2x_ns.bmp");
+	success = success && darkGrayTexture.loadFromFile("square gray dark_2x_ns.bmp");
 
-	SDL_Texture * newTexture = NULL;
+	// Set the width and height of each texture
+	blackPawnTexture.setWidth(50);
+	blackPawnTexture.setHeight(50);
+	//blackPawnPiece.texture = &blackPawnTexture;
+	whitePawnTexture.setWidth(50);
+	whitePawnTexture.setHeight(50);
+	//whitePawnPiece
+	blackBishopTexture.setWidth(50);
+	blackBishopTexture.setHeight(50);
 
-	SDL_Surface * loadedSurface = IMG_Load(path.c_str());
-	if (loadedSurface == NULL) {
-		IMG_GetError();
+	whiteBishopTexture.setWidth(50);
+	whiteBishopTexture.setHeight(50);
+
+	blackKingTexture.setWidth(50);
+	blackKingTexture.setHeight(50);
+
+	whiteKingTexture.setWidth(50);
+	whiteKingTexture.setHeight(50);
+
+	blackQueenTexture.setWidth(50);
+	blackQueenTexture.setHeight(50);
+
+	whiteQueenTexture.setWidth(50);
+	whiteQueenTexture.setHeight(50);
+
+	blackRookTexture.setWidth(50);
+	blackRookTexture.setHeight(50);
+
+	whiteRookTexture.setWidth(50);
+	whiteRookTexture.setHeight(50);
+
+	blackKnightTexture.setWidth(50);
+	blackKnightTexture.setHeight(50);
+
+	whiteKnightTexture.setWidth(50);
+	whiteKnightTexture.setHeight(50);
+
+	lightBrownTexture.setWidth(50);
+	lightBrownTexture.setHeight(50);
+
+	darkBrownTexture.setWidth(50);
+	darkBrownTexture.setHeight(50);
+
+	lightGrayTexture.setWidth(50);
+	lightGrayTexture.setHeight(50);
+	
+	darkGrayTexture.setWidth(50);
+	darkGrayTexture.setHeight(50);
+
+/*	
+	if (blackPawnTexture.loadFromFile("b_pawn_2x_ns.bmp")) 
+	{
+		blackPawnTexture.setWidth(50);
+		blackPawnTexture.setHeight(50);
+
+		blackPawnPiece.texture = & blackPawnTexture ;
 	}
-	else {
-		//Color key image
-		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0, 0xFF, 0xFF));
-
-		//Create texture from surface pixels
-		newTexture = SDL_CreateTextureFromSurface(renderer, loadedSurface);
-		if (newTexture == NULL) {
-			SDL_GetError();
-		}
-		else {
-			//Get image dimensions
-			width = loadedSurface->w;
-			height = loadedSurface->h;
-		}
-
-		//Remove old loaded surface
-		SDL_FreeSurface(loadedSurface);
+	if ()
+	else
+	{
+		success = false;
 	}
-
-	texture = newTexture;
-	return texture != NULL;
-}
-
-void LTexture::free() {
-	if (texture != NULL) {
-		SDL_DestroyTexture(texture);
-		texture = NULL;
-		width = 0;
-		height = 0;
-	}
-}
-
-void LTexture::render(int x, int y) {
-	SDL_Rect renderQuad = { x, y, width, height };
-	SDL_RenderCopy(renderer, texture, NULL, &renderQuad);
-}
-
-int LTexture::getWidth() {
-	return width;
-}
-
-int LTexture::getHeight() {
-	return height;
-}
-
-void LTexture::setWidth(int w) {
-	width = w;
-}
-
-void LTexture::setHeight(int h) {
-	height = h;
+	*/
+	return success;
 }
 
 bool init()
@@ -172,6 +168,7 @@ bool init()
 	{
 		if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1"))
 		{
+
 		}
 
 		window = SDL_CreateWindow("Chess Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
@@ -183,7 +180,7 @@ bool init()
 		else
 		{
 			renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-			if(renderer == NULL)
+			if (renderer == NULL)
 			{
 				success = false;
 			}
@@ -201,19 +198,8 @@ bool init()
 	return success;
 }
 
-bool loadMedia() {
-	bool success = true;
-
-	if (!pieceTexture.loadFromFile("b_bishop_2x_ns.bmp")) {
-		success = false;
-	}
-	return success;
-}
 
 void close() {
-	boardTexture.free();
-	pieceTexture.free();
-
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	window = NULL;
