@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ChessBoard.cpp" />
     <ClCompile Include="ChessPiece.cpp" />
     <ClCompile Include="LTextureClass.cpp" />
     <ClCompile Include="main.cpp" />
@@ -148,6 +149,7 @@
     <None Include="SDL2_image.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ChessBoard.h" />
     <ClInclude Include="ChessPiece.h" />
     <ClInclude Include="LTextureClass.h" />
   </ItemGroup>

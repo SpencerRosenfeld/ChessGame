@@ -5,6 +5,7 @@
 #include <chrono>
 #include "LTextureClass.h"
 #include "ChessPiece.h"
+#include "ChessBoard.h"
 
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600; 
@@ -40,6 +41,8 @@ int main(int argc, char * args [] )
 {
 	init();
 	loadPawnTextureAndPiece();
+	ChessBoard board = ChessBoard(& darkBrownTexture, & lightBrownTexture);
+
 	bool quit = false;
 
 	SDL_Event ev;
@@ -56,7 +59,9 @@ int main(int argc, char * args [] )
 		}
 		SDL_RenderClear(renderer);
 
-		blackPawnTexture.render(5, 5);
+		board.DrawBoard();
+		blackRookTexture.render(100, 100);
+		blackPawnTexture.render(100, 5);
 		whitePawnTexture.render(10, 10);
 
 		SDL_RenderPresent(renderer);
@@ -73,22 +78,35 @@ bool loadPawnTextureAndPiece()
 
 	// Set the renderers for the textures
 	blackPawnTexture.SetRenderer(renderer);
+	whitePawnTexture.SetRenderer(renderer);
+	blackBishopTexture.SetRenderer(renderer);
+	whiteBishopTexture.SetRenderer(renderer);
+	blackKingTexture.SetRenderer(renderer);
+	whiteKingTexture.SetRenderer(renderer);
+	blackQueenTexture.SetRenderer(renderer);
+	whiteQueenTexture.SetRenderer(renderer);
+	blackRookTexture.SetRenderer(renderer);
+	whiteRookTexture.SetRenderer(renderer);
+	lightBrownTexture.SetRenderer(renderer);
+	darkBrownTexture.SetRenderer(renderer);
+	lightGrayTexture.SetRenderer(renderer);
+	darkGrayTexture.SetRenderer(renderer);
 
 	// Load the images for the textures from the appropraite files
-	success = success && blackPawnTexture.loadFromFile("b_pawn_2x_ns.bmp");
-	success = success && whitePawnTexture.loadFromFile("w_pawn_2x_ns.bmp");
-	success = success && blackBishopTexture.loadFromFile("b_bishop_2x_ns.bmp");
-	success = success && whiteBishopTexture.loadFromFile("w_bishop_2x_ns.bmp");
-	success = success && blackKingTexture.loadFromFile("b_king_2x_ns.bmp");
-	success = success && whiteKingTexture.loadFromFile("w_king_2x_ns.bmp");
-	success = success && blackQueenTexture.loadFromFile("b_queen_2x_ns.bmp");
-	success = success && whiteQueenTexture.loadFromFile("w_queen_2x_ns.bmp");
-	success = success && blackRookTexture.loadFromFile("b_rook_2x_ns.bmp");
-	success = success && whiteRookTexture.loadFromFile("w_rook_2x_ns.bmp");
-	success = success && lightBrownTexture.loadFromFile("square brown light_2x_ns.bmp");
-	success = success && darkBrownTexture.loadFromFile("square brown dark_2x_ns.bmp");
-	success = success && lightGrayTexture.loadFromFile("square gray light_2x_ns.bmp");
-	success = success && darkGrayTexture.loadFromFile("square gray dark_2x_ns.bmp");
+	blackPawnTexture.loadFromFile("b_pawn_2x_ns.bmp");
+	whitePawnTexture.loadFromFile("w_pawn_2x_ns.bmp");
+	blackBishopTexture.loadFromFile("b_bishop_2x_ns.bmp");
+	whiteBishopTexture.loadFromFile("w_bishop_2x_ns.bmp");
+	blackKingTexture.loadFromFile("b_king_2x_ns.bmp");
+	whiteKingTexture.loadFromFile("w_king_2x_ns.bmp");
+	blackQueenTexture.loadFromFile("b_queen_2x_ns.bmp");
+	whiteQueenTexture.loadFromFile("w_queen_2x_ns.bmp");
+	blackRookTexture.loadFromFile("b_rook_2x_ns.bmp");
+	whiteRookTexture.loadFromFile("w_rook_2x_ns.bmp");
+	lightBrownTexture.loadFromFile("square brown light_2x_ns.bmp");
+	darkBrownTexture.loadFromFile("square brown dark_2x_ns.bmp");
+	lightGrayTexture.loadFromFile("square gray light_2x_ns.bmp");
+	darkGrayTexture.loadFromFile("square gray dark_2x_ns.bmp");
 
 	// Set the width and height of each texture
 	blackPawnTexture.setWidth(50);
