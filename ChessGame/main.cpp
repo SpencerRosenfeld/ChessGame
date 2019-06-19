@@ -61,8 +61,8 @@ int main(int argc, char * args [] )
 
 		board.DrawBoard();
 		blackRookTexture.render(100, 100);
-		blackPawnTexture.render(100, 5);
-		whitePawnTexture.render(10, 10);
+		blackPawnTexture.render(100, 0);
+		whitePawnTexture.render(0, 0);
 
 		SDL_RenderPresent(renderer);
 	}
