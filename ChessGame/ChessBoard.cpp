@@ -28,10 +28,10 @@ void ChessBoard::DrawBoard()
 
 	scale = darkTile->getWidth(); // The tiles are square, so we assume that their width and height are the same
 
-	for (int i = 1; i < 64; i++)
+	for (int i = 1; i <= 64; i++)
 	{
-		u = i % 8;
-		v = i / 8;
+		u = (i % 64) % 8;
+		v = (i % 64) / 8;
 
 		if ( (i + i/8) % 2  == 0)
 		{
@@ -50,12 +50,12 @@ void ChessBoard::DrawBoard(int x, int y)
 
 	scale = darkTile->getWidth(); // The tiles are square, so we assume that their width and height are the same
 
-	for (int i = 0; i < 64; i++)
+	for (int i = 1; i <= 64; i++)
 	{
-		u = i % 64;
-		v = i / 64;
+		u = (i % 64) % 8;
+		v = (i % 64) / 8;
 
-		if (i % 2 == 0)
+		if ((i + i / 8) % 2 == 0)
 		{
 			darkTile->render(u * scale + x, v * scale + y);
 		}
