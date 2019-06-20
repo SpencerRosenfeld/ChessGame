@@ -39,6 +39,8 @@ LTextureClass darkBrownTexture;
 LTextureClass lightGrayTexture;
 LTextureClass darkGrayTexture;
 
+LTextureClass blueBoundaryTexture;
+
 ChessPiece blackPawnPiece;
 
 int main(int argc, char * args [] )
@@ -132,6 +134,8 @@ bool loadPawnTextureAndPiece()
 	lightGrayTexture.SetRenderer(renderer);
 	darkGrayTexture.SetRenderer(renderer);
 
+	blueBoundaryTexture.SetRenderer(renderer);
+
 	// Load the images for the textures from the appropraite files
 	blackPawnTexture.loadFromFile("b_pawn_2x_ns.bmp");
 	whitePawnTexture.loadFromFile("w_pawn_2x_ns.bmp");
@@ -147,6 +151,8 @@ bool loadPawnTextureAndPiece()
 	darkBrownTexture.loadFromFile("square brown dark_2x_ns.bmp");
 	lightGrayTexture.loadFromFile("square gray light_2x_ns.bmp");
 	darkGrayTexture.loadFromFile("square gray dark_2x_ns.bmp");
+
+	blueBoundaryTexture.loadFromFile("blue square.bmp");
 
 	// Set the width and height of each texture
 	blackPawnTexture.setWidth(TILE_WIDTH);
@@ -196,6 +202,9 @@ bool loadPawnTextureAndPiece()
 	
 	darkGrayTexture.setWidth(TILE_WIDTH);
 	darkGrayTexture.setHeight(TILE_HEIGHT);
+
+	blueBoundaryTexture.setWidth(TILE_WIDTH);
+	blueBoundaryTexture.setHeight(TILE_HEIGHT);
 
 /*	
 	if (blackPawnTexture.loadFromFile("b_pawn_2x_ns.bmp")) 
