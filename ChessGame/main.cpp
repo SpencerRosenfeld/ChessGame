@@ -41,6 +41,13 @@ int main(int argc, char * args [] )
 {
 	init();
 	loadPawnTextureAndPiece();
+
+	ChessPiece pawn;
+	pawn.texture = & whitePawnTexture;
+	pawn.x = 304;
+	pawn.y = 220;
+
+
 	ChessBoard board = ChessBoard(& darkBrownTexture, & lightBrownTexture);
 
 	bool quit = false;
@@ -59,7 +66,18 @@ int main(int argc, char * args [] )
 			{
 				int x, y;
 				SDL_GetMouseState(&x, &y);
-				x = y;
+				if (pawn.isSelected == true)
+				{
+					pawn.isSelected = false;
+				}
+				else
+				{
+					if (pawn.isInsideBoundingBox(x, y))
+					{
+						pawn.isSelected = true;
+					}
+				}
+
 			}
 
 		}
@@ -70,6 +88,15 @@ int main(int argc, char * args [] )
 		blackPawnTexture.render(100, 0);
 		whitePawnTexture.render(0, 0);
 
+		int mousex, mousey;
+		SDL_GetMouseState(& mousex,& mousey);
+		if (pawn.isSelected == true)
+		{
+			pawn.x = mousex - pawn.getWidth()/3;
+			pawn.y = mousey - pawn.getHeight()/3;
+		}
+
+		pawn.Draw();
 		SDL_RenderPresent(renderer);
 	}
 

@@ -12,6 +12,21 @@ ChessPiece::~ChessPiece()
 	
 }
 
+int ChessPiece::getWidth() 
+{
+	return texture->getWidth();
+}
+
+int ChessPiece::getHeight()
+{
+	return texture->getHeight();
+}
+
+void ChessPiece::Draw()
+{
+	this->texture->render(this->x, this->y);
+}
+
 bool ChessPiece::isInsideBoundingBox(int x, int y) 
 {
 	int cX = this->x;
