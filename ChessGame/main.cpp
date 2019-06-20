@@ -7,8 +7,11 @@
 #include "ChessPiece.h"
 #include "ChessBoard.h"
 
-const int SCREEN_WIDTH = 800;
-const int SCREEN_HEIGHT = 600; 
+// The SCREEN_WIDTH and SCREEN_HEIGHT should be at least 8 times TILE_WIDTH in order to show the entire chess board. 
+const int SCREEN_WIDTH = 400;
+const int SCREEN_HEIGHT = 400; 
+const int TILE_WIDTH = 50;
+const int TILE_HEIGHT = 50; // We want the tiles to be squares so TILE_WIDTH and TILE_HEIGHT should be the same. 
 
 SDL_Window * window = NULL;
 SDL_Renderer * renderer = NULL;
@@ -108,6 +111,7 @@ int main(int argc, char * args [] )
 	return 0;
 }
 
+// This function loads the resources for all the textures. 
 bool loadPawnTextureAndPiece() 
 {
 	bool success = true;
@@ -145,53 +149,53 @@ bool loadPawnTextureAndPiece()
 	darkGrayTexture.loadFromFile("square gray dark_2x_ns.bmp");
 
 	// Set the width and height of each texture
-	blackPawnTexture.setWidth(50);
-	blackPawnTexture.setHeight(50);
+	blackPawnTexture.setWidth(TILE_WIDTH);
+	blackPawnTexture.setHeight(TILE_HEIGHT);
 	//blackPawnPiece.texture = &blackPawnTexture;
-	whitePawnTexture.setWidth(50);
-	whitePawnTexture.setHeight(50);
+	whitePawnTexture.setWidth(TILE_WIDTH);
+	whitePawnTexture.setHeight(TILE_HEIGHT);
 	//whitePawnPiece
-	blackBishopTexture.setWidth(50);
-	blackBishopTexture.setHeight(50);
+	blackBishopTexture.setWidth(TILE_WIDTH);
+	blackBishopTexture.setHeight(TILE_HEIGHT);
 
-	whiteBishopTexture.setWidth(50);
-	whiteBishopTexture.setHeight(50);
+	whiteBishopTexture.setWidth(TILE_WIDTH);
+	whiteBishopTexture.setHeight(TILE_HEIGHT);
 
-	blackKingTexture.setWidth(50);
-	blackKingTexture.setHeight(50);
+	blackKingTexture.setWidth(TILE_WIDTH);
+	blackKingTexture.setHeight(TILE_HEIGHT);
 
-	whiteKingTexture.setWidth(50);
-	whiteKingTexture.setHeight(50);
+	whiteKingTexture.setWidth(TILE_WIDTH);
+	whiteKingTexture.setHeight(TILE_HEIGHT);
 
-	blackQueenTexture.setWidth(50);
-	blackQueenTexture.setHeight(50);
+	blackQueenTexture.setWidth(TILE_WIDTH);
+	blackQueenTexture.setHeight(TILE_HEIGHT);
 
-	whiteQueenTexture.setWidth(50);
-	whiteQueenTexture.setHeight(50);
+	whiteQueenTexture.setWidth(TILE_WIDTH);
+	whiteQueenTexture.setHeight(TILE_HEIGHT);
 
-	blackRookTexture.setWidth(50);
-	blackRookTexture.setHeight(50);
+	blackRookTexture.setWidth(TILE_WIDTH);
+	blackRookTexture.setHeight(TILE_HEIGHT);
 
-	whiteRookTexture.setWidth(50);
-	whiteRookTexture.setHeight(50);
+	whiteRookTexture.setWidth(TILE_WIDTH);
+	whiteRookTexture.setHeight(TILE_HEIGHT);
 
-	blackKnightTexture.setWidth(50);
-	blackKnightTexture.setHeight(50);
+	blackKnightTexture.setWidth(TILE_WIDTH);
+	blackKnightTexture.setHeight(TILE_HEIGHT);
 
-	whiteKnightTexture.setWidth(50);
-	whiteKnightTexture.setHeight(50);
+	whiteKnightTexture.setWidth(TILE_WIDTH);
+	whiteKnightTexture.setHeight(TILE_HEIGHT);
 
-	lightBrownTexture.setWidth(50);
-	lightBrownTexture.setHeight(50);
+	lightBrownTexture.setWidth(TILE_WIDTH);
+	lightBrownTexture.setHeight(TILE_HEIGHT);
 
-	darkBrownTexture.setWidth(50);
-	darkBrownTexture.setHeight(50);
+	darkBrownTexture.setWidth(TILE_WIDTH);
+	darkBrownTexture.setHeight(TILE_HEIGHT);
 
-	lightGrayTexture.setWidth(50);
-	lightGrayTexture.setHeight(50);
+	lightGrayTexture.setWidth(TILE_WIDTH);
+	lightGrayTexture.setHeight(TILE_HEIGHT);
 	
-	darkGrayTexture.setWidth(50);
-	darkGrayTexture.setHeight(50);
+	darkGrayTexture.setWidth(TILE_WIDTH);
+	darkGrayTexture.setHeight(TILE_HEIGHT);
 
 /*	
 	if (blackPawnTexture.loadFromFile("b_pawn_2x_ns.bmp")) 
@@ -210,6 +214,7 @@ bool loadPawnTextureAndPiece()
 	return success;
 }
 
+// This function returns the largest multiple of scale which is less than x. We assume that x and scale are both positive. 
 int snap(int x, int scale) {
 	return (x / scale ) * scale;
 }
