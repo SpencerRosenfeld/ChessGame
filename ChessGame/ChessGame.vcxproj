@@ -154,6 +154,7 @@
     <ClInclude Include="LTextureClass.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\Debug\blue square.bmp" />
     <Image Include="..\Debug\b_bishop_2x_ns.bmp" />
     <Image Include="..\Debug\b_king_2x_ns.bmp" />
     <Image Include="..\Debug\b_knight_2x_ns.bmp" />
