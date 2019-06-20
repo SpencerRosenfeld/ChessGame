@@ -55,6 +55,12 @@ int main(int argc, char * args [] )
 			{
 				quit = true;
 			}
+			else if (ev.type == SDL_MOUSEBUTTONDOWN) 
+			{
+				int x, y;
+				SDL_GetMouseState(&x, &y);
+				x = y;
+			}
 
 		}
 		SDL_RenderClear(renderer);

@@ -13,6 +13,8 @@ public:
 	std::string team;
 	bool isCaptured;
 	LTextureClass * texture;
+	bool isInsideBoundingBox(int x, int y);
+	bool isSelected;
 };
 
 
