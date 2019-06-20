@@ -17,6 +17,7 @@ SDL_Surface * surface = NULL;
 bool init();
 void close();
 bool loadPawnTextureAndPiece();
+int snap(int x, int scale);
 
 LTextureClass blackPawnTexture;
 LTextureClass whitePawnTexture;
@@ -69,6 +70,8 @@ int main(int argc, char * args [] )
 				if (pawn.isSelected == true)
 				{
 					pawn.isSelected = false;
+					pawn.x = snap(x, pawn.getWidth());
+					pawn.y = snap(y, pawn.getHeight());
 				}
 				else
 				{
@@ -205,6 +208,10 @@ bool loadPawnTextureAndPiece()
 	}
 	*/
 	return success;
+}
+
+int snap(int x, int scale) {
+	return (x / scale ) * scale;
 }
 
 bool init()
